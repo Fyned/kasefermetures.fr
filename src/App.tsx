@@ -1,56 +1,36 @@
-import { Helmet } from 'react-helmet-async'
-import Header from './components/sections/Header'
-import Hero from './components/sections/Hero'
-import Services from './components/sections/Services'
-import Divider from './components/sections/Divider'
-import ContactInfo from './components/sections/ContactInfo'
-import Footer from './components/sections/Footer'
+import { lazy, Suspense } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './components/layout/Layout'
+import PageLoader from './components/ui/PageLoader'
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "KASE Fermetures",
-  "description": "Expert en menuiserie extérieure dans les Vosges : fenêtres, portes, portes de garage et volets.",
-  "url": "https://kasefermetures.fr",
-  "telephone": "+33782984436",
-  "email": "contact@kasefermetures.fr",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "60 Rue des Déportés",
-    "addressLocality": "Saulcy-sur-Meurthe",
-    "postalCode": "88580",
-    "addressRegion": "Grand Est",
-    "addressCountry": "FR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 48.238,
-    "longitude": 6.965
-  },
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 48.238,
-      "longitude": 6.965
-    },
-    "geoRadius": "50000"
-  },
-  "sameAs": ["https://www.instagram.com/kasefermetures/"]
-}
+const Home = lazy(() => import('./pages/Home'))
+const Fenetres = lazy(() => import('./pages/Fenetres'))
+const Portes = lazy(() => import('./pages/Portes'))
+const PortesGarage = lazy(() => import('./pages/PortesGarage'))
+const Volets = lazy(() => import('./pages/Volets'))
+const Contact = lazy(() => import('./pages/Contact'))
+const DevisGratuit = lazy(() => import('./pages/DevisGratuit'))
+const MentionsLegales = lazy(() => import('./pages/MentionsLegales'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#1E1E1E' }}>
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(schema)}</script>
-      </Helmet>
-      <Header />
-      <Hero />
-      <Services />
-      <Divider />
-      <ContactInfo />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="fenetres" element={<Fenetres />} />
+            <Route path="portes" element={<Portes />} />
+            <Route path="portes-de-garage" element={<PortesGarage />} />
+            <Route path="volets" element={<Volets />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="devis-gratuit" element={<DevisGratuit />} />
+            <Route path="mentions-legales" element={<MentionsLegales />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   )
 }

@@ -8,3 +8,9 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+.claude/
+.playwright-mcp/
+pdf`s/
+visual-audit-screenshots/
+visual-audit.cjs
+public/images/instagram/

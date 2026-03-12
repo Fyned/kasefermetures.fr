@@ -1,0 +1,70 @@
+import type { Product } from '../types'
+
+export const portesGarageProducts: Product[] = [
+  {
+    id: 'pg-sect-standard',
+    name: 'Sectionnelle Standard',
+    category: 'sectionnelles',
+    material: 'Acier',
+    description: 'Porte de garage sectionnelle avec panneaux isolés en mousse polyuréthane. Ouverture verticale pour un gain de place optimal.',
+    features: ['Panneaux isolés 40 mm', 'Ouverture verticale', 'Ressorts de torsion', 'Certification CE'],
+    colors: ['#FFFFFF', '#2B2B2B', '#808080', '#8B7355'],
+    badge: 'Populaire',
+    image: '/images/portes-garage/sectionnelle-standard.jpg',
+  },
+  {
+    id: 'pg-sect-motorisee',
+    name: 'Sectionnelle Motorisée',
+    category: 'sectionnelles',
+    material: 'Acier',
+    description: 'Porte de garage sectionnelle avec motorisation intégrée. Commande à distance et éclairage LED inclus.',
+    features: ['Motorisation déportée', 'Télécommande 4 canaux', 'Éclairage LED', 'Sécurité anti-pincement'],
+    colors: ['#FFFFFF', '#2B2B2B', '#808080', '#8B7355'],
+    badge: 'Motorisée',
+    image: '/images/portes-garage/sectionnelle-motorisee.jpg',
+  },
+  {
+    id: 'pg-sect-vitree',
+    name: 'Sectionnelle Vitrée',
+    category: 'sectionnelles',
+    material: 'Aluminium',
+    description: 'Porte de garage sectionnelle avec panneaux vitrés en aluminium. Design contemporain et luminosité naturelle.',
+    features: ['Panneaux vitrés', 'Cadre aluminium', 'Design contemporain', 'Luminosité naturelle'],
+    colors: ['#2B2B2B', '#808080'],
+  },
+  {
+    id: 'pg-basc-standard',
+    name: 'Basculante Standard',
+    category: 'basculantes',
+    material: 'Acier',
+    description: 'Porte de garage basculante classique et fiable. Solution économique avec débordement extérieur.',
+    features: ['Panneau monobloc', 'Ressorts latéraux', 'Robuste et fiable', 'Prix accessible'],
+    colors: ['#FFFFFF', '#2B2B2B', '#808080'],
+  },
+  {
+    id: 'pg-enr-compact',
+    name: 'Enroulable Compact',
+    category: 'enroulables',
+    material: 'Aluminium',
+    description: 'Porte de garage enroulable en aluminium. S\'enroule dans un coffre compact au-dessus de l\'ouverture.',
+    features: ['Coffre compact', 'Lames aluminium', 'Motorisation intégrée', 'Gain de place maximal'],
+    colors: ['#FFFFFF', '#2B2B2B', '#808080', '#8B7355'],
+  },
+  {
+    id: 'pg-enr-isole',
+    name: 'Enroulable Isolée',
+    category: 'enroulables',
+    material: 'Aluminium',
+    description: 'Porte de garage enroulable avec lames isolées double paroi. Performance thermique et acoustique.',
+    features: ['Lames isolées', 'Double paroi', 'Isolation renforcée', 'Motorisation silencieuse'],
+    colors: ['#FFFFFF', '#2B2B2B', '#808080'],
+    badge: 'Isolée',
+  },
+]
+
+export const portesGarageCategories = [
+  { id: 'all', label: 'Tous' },
+  { id: 'sectionnelles', label: 'Sectionnelles' },
+  { id: 'basculantes', label: 'Basculantes' },
+  { id: 'enroulables', label: 'Enroulables' },
+]
